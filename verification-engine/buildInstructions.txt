@@ -1,0 +1,3 @@
+./gradlew installDist
+build/install/verification-engine/bin/verification-engine
+
