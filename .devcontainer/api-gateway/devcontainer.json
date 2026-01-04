@@ -1,0 +1,29 @@
+{
+  "name": "API Gateway (Python)",
+  "dockerComposeFile": "../../compose.yaml",
+  "service": "api-gateway",
+  "workspaceFolder": "/app",
+  "shutdownAction": "none",
+  
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.languageServer": "Pylance",
+        "python.analysis.typeCheckingMode": "basic",
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "ms-python.black-formatter"
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  
+  "overrideCommand": false
+}

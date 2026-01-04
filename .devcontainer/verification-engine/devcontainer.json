@@ -1,0 +1,21 @@
+{
+  "name": "Verification Engine (Kotlin - Local)",
+  
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "kotlin.compiler.jvm.target": "17",
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "[kotlin]": {
+          "editor.formatOnSave": true
+        }
+      },
+      "extensions": [
+        "mathiasfrohlich.kotlin-language",
+        "fwcd.kotlin",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle"
+      ]
+    }
+  }
+}

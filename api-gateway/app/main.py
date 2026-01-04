@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from confluent_kafka import Producer, Consumer, KafkaException, KafkaError
 from random import choice
-import sys
-import threading
 
 app = FastAPI()
 
@@ -21,7 +19,6 @@ consumer_config = {
 # Create Producer instance
 producer = Producer(producer_config)
 consumer = Consumer(consumer_config)
-
 def delivery_callback(err, msg):
     if err:
         print('ERROR: Message failed delivery: {}'.format(err))
@@ -63,26 +60,3 @@ async def conset_granted():
     producer.flush()
     
     return {"this one works": "hi"}
-
-# def lets_see():
-#     running = True
-#     try:
-#         consumer.subscribe(['test'])
-#         while running:
-#             msg = consumer.poll(timeout=1.0)
-#             if msg is None: print("waiting...")
-            
-#             elif msg.error():
-#                 raise KafkaException(msg.error())
-#             else:
-#                 print("Consumed event from topic {topic}: key = {key:12} value = {value:12}".format(
-# topic=msg.topic(), key=msg.key().decode('utf-8'), value=msg.value().decode('utf-8')))
-#     finally:
-#         consumer.close()
-    
-#     return {'executed':'true'}
-
-# @app.on_event("startup")
-# def start_consumer():
-#     thread = threading.Thread(target=lets_see, daemon=True)
-#     thread.start()
