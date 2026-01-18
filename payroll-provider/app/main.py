@@ -1,8 +1,21 @@
+import strawberry
 
 from fastapi import FastAPI
+from strawberry.fastapi import GraphQLRouter
+
+@strawberry.type
+class Query:
+    @strawberry.field
+    async def hello(self) -> str:
+        return "Hello World Again"
+
+schema = strawberry.Schema(Query)
+graphql_app = GraphQLRouter(schema)
 
 app = FastAPI()
+app.include_router(graphql_app, prefix="/graphql")
+
 
 @app.get("/")
 async def root():
-    return {"income statement": "200k last month"}
+    return {"income statement": "200 last month"}

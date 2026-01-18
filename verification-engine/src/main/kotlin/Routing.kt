@@ -12,8 +12,14 @@ fun Application.configureRouting() {
         get("/hello") {
             call.respondText("This route says hello")
         }
-        get("/a") {
+        get("/b") {
             call.respondText("FAAAAHHHH")
+        }
+        get("/c") {
+            call.respondText("YESS")
+        }
+        get("/d") {
+            call.respondText("OKK")
         }
     }
 }
