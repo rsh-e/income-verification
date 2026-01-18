@@ -10,4 +10,3 @@ app.include_router(health.router, prefix="/health")
 @app.get("/")
 async def root():
     return {"This works"}
-
